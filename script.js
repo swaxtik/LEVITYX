@@ -1,5 +1,11 @@
-// 1. SETUP LENIS SMOOTH SCROLL
-const lenis = new Lenis({ duration: 1.2, smooth: true });
+// 1. SETUP LENIS SMOOTH SCROLL (Optimized for Mobile Touch)
+const lenis = new Lenis({ 
+    duration: 1.2, 
+    smooth: true,
+    smoothTouch: true, // IMPORTANT: Enables smooth "gliding" on touch devices
+    touchMultiplier: 2, // Makes scrolling feel faster and more responsive on phone
+});
+
 function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
 requestAnimationFrame(raf);
 
@@ -187,4 +193,5 @@ document.querySelectorAll('.fs-link').forEach(link => {
         fsMenu.classList.remove('active');
         document.querySelector('.scramble-text').innerText = "MENU";
     });
+
 });
